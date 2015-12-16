@@ -17,6 +17,7 @@
 		A12AD8D11C1FCE3600F7C274 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A12AD8D01C1FCE3600F7C274 /* bg.jpg */; };
 		A12AD8D61C1FD3E600F7C274 /* CutomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12AD8D51C1FD3E600F7C274 /* CutomeCollectionCell.swift */; };
 		A12AD8D81C205BF900F7C274 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12AD8D71C205BF900F7C274 /* csv.swift */; };
+		A1ACF7061C211B8D00E7352B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ACF7051C211B8D00E7352B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A12AD8D01C1FCE3600F7C274 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		A12AD8D51C1FD3E600F7C274 /* CutomeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutomeCollectionCell.swift; sourceTree = "<group>"; };
 		A12AD8D71C205BF900F7C274 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
+		A1ACF7051C211B8D00E7352B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			children = (
 				A12AD8D21C1FD34B00F7C274 /* Custome */,
 				A12AD8CD1C1FCDA000F7C274 /* Model */,
+				A1ACF7071C211B9700E7352B /* View */,
 				A12AD8B81C1FCA4800F7C274 /* PokemanDex */,
 				A12AD8B71C1FCA4800F7C274 /* Products */,
 			);
@@ -69,6 +72,7 @@
 				A12AD8D01C1FCE3600F7C274 /* bg.jpg */,
 				A12AD8B91C1FCA4800F7C274 /* AppDelegate.swift */,
 				A12AD8BB1C1FCA4800F7C274 /* MainViewController.swift */,
+				A1ACF7051C211B8D00E7352B /* DetailViewController.swift */,
 				A12AD8BD1C1FCA4900F7C274 /* Main.storyboard */,
 				A12AD8C01C1FCA4900F7C274 /* Assets.xcassets */,
 				A12AD8C21C1FCA4900F7C274 /* LaunchScreen.storyboard */,
@@ -93,6 +97,14 @@
 				A12AD8D51C1FD3E600F7C274 /* CutomeCollectionCell.swift */,
 			);
 			name = Custome;
+			sourceTree = "<group>";
+		};
+		A1ACF7071C211B9700E7352B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = PokemanDex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +183,7 @@
 				A12AD8BC1C1FCA4800F7C274 /* MainViewController.swift in Sources */,
 				A12AD8BA1C1FCA4800F7C274 /* AppDelegate.swift in Sources */,
 				A12AD8D61C1FD3E600F7C274 /* CutomeCollectionCell.swift in Sources */,
+				A1ACF7061C211B8D00E7352B /* DetailViewController.swift in Sources */,
 				A12AD8CF1C1FCDAF00F7C274 /* Pokemon.swift in Sources */,
 				A12AD8D81C205BF900F7C274 /* csv.swift in Sources */,
 			);
@@ -320,6 +333,7 @@
 				A12AD8CA1C1FCA4900F7C274 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
