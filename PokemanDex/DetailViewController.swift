@@ -21,17 +21,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var bottomImage1: UIImageView!
-    @IBOutlet weak var evolutionLabel: UILabel!
     @IBOutlet weak var bottomImage2: UIImageView!
-    
-    
+    @IBOutlet weak var nextEvolutionLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        poke.downloadPokemon()
+        poke.downloadPokemon(){
+            self.updateUI()
+        }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    func updateUI(){
         weight.text = poke.weight
         height.text = poke.height
         id.text = poke.id
@@ -40,28 +40,13 @@ class DetailViewController: UIViewController {
         attack.text = poke.attack
         type.text = poke.types
         descriptionLabel.text = poke.description
-        bottomImage1.image = UIImage(named: poke.nextEvo)
+        bottomImage1.image = UIImage(named: "\(poke.pokeId)")
+        print(poke.nextEvo)
+        bottomImage2.image = UIImage(named: poke.nextEvo)
+        pokemonNameLabel.text = poke.name.capitalizedString
         displayImage.image = UIImage(named: "\(poke.pokeId)")
-        //bottomImage1.image =
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        let evolutionLabel = "Next Evolution: \(poke.nextEvoName), Level:\(poke.nextEvoLevel)"
+        nextEvolutionLabel.text = evolutionLabel
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

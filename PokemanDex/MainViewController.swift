@@ -38,7 +38,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let rows = parsedCVS.rows
            
             for row in rows {
-               pokemon.append(Pokemon(name: row["identifier"]!, pokeId: Int(row["id"]!)!))
+               pokemon.append(Pokemon(name: row["identifier"]!, pokeId: row["id"]!))
             }
         }
         catch let err as NSError? {

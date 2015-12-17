@@ -162,7 +162,7 @@
                                         </subviews>
                                         <animations/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBM-iz-0JH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBM-iz-0JH">
                                         <rect key="frame" x="20" y="7" width="51" height="30"/>
                                         <animations/>
                                         <constraints>
@@ -182,8 +182,10 @@
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0xt-5A-1KQ"/>
+                                    <constraint firstItem="WBM-iz-0JH" firstAttribute="bottom" secondItem="GD9-HI-sCG" secondAttribute="bottom" id="TnM-8u-zto"/>
                                     <constraint firstItem="GD9-HI-sCG" firstAttribute="centerY" secondItem="OOo-P0-yIn" secondAttribute="centerY" id="aIe-8w-KFm"/>
                                     <constraint firstItem="GD9-HI-sCG" firstAttribute="centerX" secondItem="OOo-P0-yIn" secondAttribute="centerX" id="jw8-T6-zpI"/>
+                                    <constraint firstItem="WBM-iz-0JH" firstAttribute="leading" secondItem="OOo-P0-yIn" secondAttribute="leading" constant="20" id="vly-Ck-XWa"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZH-sf-0rr">
@@ -202,7 +204,7 @@
                                         <animations/>
                                         <string key="text">In a professional context it often happens that private or corporate clients corder a publication to be made and presented with the actual content still not being ready. Think of a news blog that's filled with content hourly on the day of going live</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -228,7 +230,7 @@
                                                 <rect key="frame" x="50" y="0.0" width="230" height="19"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -248,7 +250,7 @@
                                                 <rect key="frame" x="62" y="0.0" width="219" height="19"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -285,7 +287,7 @@
                                         <rect key="frame" x="140" y="0.0" width="140" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm0-wL-bDp">
@@ -299,7 +301,7 @@
                                         <rect key="frame" x="420" y="0.0" width="140" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -319,7 +321,7 @@
                                         <rect key="frame" x="140" y="0.0" width="140" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon Id:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D7-3C-K0O">
@@ -333,7 +335,7 @@
                                         <rect key="frame" x="420" y="0.0" width="140" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -343,9 +345,9 @@
                                 <rect key="frame" x="0.0" y="415" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Evolution: Varnosouse LVL 32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTU-1Y-cMr">
-                                        <rect key="frame" x="177" y="11" width="245.5" height="20.5"/>
+                                        <rect key="frame" x="164" y="11" width="272" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -421,15 +423,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="attack" destination="Rdj-MW-U1S" id="RrW-qI-5TS"/>
+                        <outlet property="attack" destination="FQU-2g-9AL" id="am5-C6-Mga"/>
                         <outlet property="bottomImage1" destination="qZA-yn-Brp" id="Qo7-6L-BhM"/>
                         <outlet property="bottomImage2" destination="mkK-Vf-Rel" id="xOV-Yq-tW5"/>
                         <outlet property="defense" destination="kOW-lT-udC" id="j8I-Zx-Oh1"/>
                         <outlet property="descriptionLabel" destination="UPk-6C-pbn" id="L8G-Z7-ggb"/>
                         <outlet property="displayImage" destination="sDa-IL-MAP" id="XS6-G6-tcS"/>
-                        <outlet property="evolutionLabel" destination="cTU-1Y-cMr" id="5VS-pr-3J2"/>
                         <outlet property="height" destination="hoj-ky-6dQ" id="Xf4-i3-YM1"/>
                         <outlet property="id" destination="Rdj-MW-U1S" id="jY5-wE-5SJ"/>
+                        <outlet property="nextEvolutionLabel" destination="cTU-1Y-cMr" id="mEo-9S-TsM"/>
                         <outlet property="pokemonNameLabel" destination="4Gz-Ca-yXQ" id="poT-tw-xT1"/>
                         <outlet property="type" destination="HvK-Qa-ODx" id="LUI-t1-1iB"/>
                         <outlet property="weight" destination="dD5-NS-B8v" id="14V-db-zuD"/>

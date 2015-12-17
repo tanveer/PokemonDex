@@ -11,7 +11,7 @@ import Alamofire
 
 class Pokemon {
     private var _name: String!
-    private var _pokeId: Int!
+    private var _pokeId: String!
     private var _pokemonURL: String!
     private var _displayImage: String!
     private var _description: String!
@@ -24,82 +24,100 @@ class Pokemon {
     private var _evolutionTxt:String!
     private let emptyString = ""
     private var _nextEvoution:String!
+    private var _nextEvoName:String!
+    private var _nextEvoLevel:String!
 
-    
+    //computed properties
     var name:String {
-        if _name != nil {
-            return _name
+        if _name == nil {
+            _name = emptyString
         }
-        return emptyString
+        return _name
     }
     
-    var pokeId:Int {
+    var pokeId:String {
+        if _pokeId == nil {
+            _pokeId = emptyString
+        }
         return _pokeId
     }
     
     var weight:String {
-        if _weight != nil {
-            return _weight
+        if _weight == nil {
+            _weight = emptyString
         }
-        return emptyString
+        return _weight
     }
     
     var height:String {
-        if _height != nil {
-            return _height
+        if _height == nil {
+            _height = emptyString
         }
-        return emptyString
+        return _height
     }
     
     var id:String {
-        if _id != nil {
-            return "\(_id)"
+        if _id == nil {
+            _id = emptyString
         }
-        return emptyString
+        return _id
     }
     
     var defense:String{
-        if _defense != nil {
-            return _defense
+        if _defense == nil {
+            _defense = emptyString
         }
-        return emptyString
+        return _defense
     }
     
-    var attack:String{
-        if let attack = _attack {
-            return attack
+    var attack:String {
+        if _attack == nil {
+            _attack = emptyString
         }
-        return emptyString
+        return _attack
     }
     
-    var types:String{
-        if let types = _types{
-            return types
+    var types:String {
+        if _types == nil {
+           _types = emptyString
         }
-        return emptyString
+        return _types
     }
     
     var nextEvo:String {
-        if let nextEvo = _nextEvoution{
-            return nextEvo
+        if _nextEvoution == nil {
+            _nextEvoution = emptyString
         }
-        return emptyString
+        return _nextEvoution
+    }
+    
+    var nextEvoName:String{
+        if _nextEvoName == nil {
+            _nextEvoName = "none"
+        }
+        return _nextEvoName
+    }
+    var nextEvoLevel:String{
+        if _nextEvoLevel == nil {
+            _nextEvoLevel = "??"
+        }
+        return _nextEvoLevel
     }
     
     var description:String{
-        if let description = _description{
-            return description
+        if _description == nil {
+            _description = emptyString
         }
-         return emptyString
+         return _description
     }
     
-    init(name:String, pokeId:Int){
+    init(name:String, pokeId:String){
         _name = name
         _pokeId = pokeId
         _pokemonURL = "\(BASE_URL)\(API_URL)\(self._pokeId)/"
     }
     
-    func downloadPokemon(){
+    func downloadPokemon(completed: DownloadComlete){
         let nsURL = NSURL(string: _pokemonURL)
         Alamofire.request(.GET, nsURL!).responseJSON {
             response in
@@ -110,8 +128,9 @@ class Pokemon {
                         self._height = height
                 }
                 
-                if let id = result["id"] as? Int{
+                if let id = result["pkdx_id"] as? Int{
                     self._id = "\(id)"
+                    
                 }
                 
                 if let defense = result["defense"] as? Int {
@@ -139,6 +158,24 @@ class Pokemon {
                         }
                     }
                 }
+                
+                //get next evolutions
+                if let evolutions = result["evolutions"] as? [[String:AnyObject]]
+                    where evolutions.count > 0 {
+                    if let nextEvo = evolutions[0]["to"] as? String {
+                        if nextEvo.rangeOfString("mega") == nil {
+                            let nextEvolutionID = evolutions[0]["resource_uri"] as? String
+                            let level = evolutions[0]["level"] as? Int
+                            let id = nextEvolutionID!.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "").stringByReplacingOccurrencesOfString("/", withString: "")
+                            self._nextEvoution = id
+                            self._nextEvoName = nextEvo
+                            if let lvl = level {
+                                self._nextEvoLevel = "\(lvl)"
+                            }
+                            
+                        }
+                    }
+                }
         
                 if let description = result["descriptions"] as? [[String:String]],
                    let uri = description[0]["resource_uri"] {
@@ -152,20 +189,9 @@ class Pokemon {
                                 self._description = description
                             }
                         }
+                        completed()
                     }
                 }
-                
-                //get next evolutions
-                if let evolutions = result["evolutions"] as? [[String:AnyObject]]
-                    where evolutions.count > 0,
-                    let nextEvo = evolutions[0]["to"] as? String {
-                    if nextEvo.rangeOfString("mega") == nil,
-                        let nextEvolutionID = evolutions[0]["resource_uri"] as? String {
-                        let id = nextEvolutionID.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "").stringByReplacingOccurrencesOfString("/", withString: "")
-                        self._nextEvoution = id
-                    }
-                }
-                
             }
         }
     }
