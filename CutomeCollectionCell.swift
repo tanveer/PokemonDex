@@ -15,7 +15,6 @@ class CutomeCollectionCell: UICollectionViewCell {
     var pokemon: Pokemon!
     func configureCell(pokemon: Pokemon){
         self.pokemon = pokemon
-        
         nameLabel.text = self.pokemon.name.capitalizedString
         image.image = UIImage(named: "\(self.pokemon.pokeId)")
     }

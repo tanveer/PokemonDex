@@ -10,14 +10,13 @@ import UIKit
 private let IDENTIFIER = "Cell"
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     var images:[String] = []
     var pokemon = [Pokemon]()
     var inSearchMode = false
     var filterdPokemon:[Pokemon] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -25,6 +24,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             images.append("\(image)")
         }
         parseCSV()
+    }
+    
+    @IBAction func unwindToContainerVC(segue: UIStoryboardSegue) {
+        
     }
     
     func parseCSV(){
@@ -55,10 +58,20 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return images.count
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let poke:Pokemon!
+        if inSearchMode {
+            poke = filterdPokemon[indexPath.row]
+        } else {
+            poke = pokemon[indexPath.row]
+        }
+        performSegueWithIdentifier("detailVC", sender: poke)
+    }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(IDENTIFIER, forIndexPath: indexPath) as! CutomeCollectionCell
         let poke:Pokemon!
-
         if inSearchMode {
             poke = filterdPokemon[indexPath.row]
         } else {
@@ -77,7 +90,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     //Search
-    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
@@ -88,6 +100,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let lower = searchBar.text!.lowercaseString
             filterdPokemon = pokemon.filter({$0.name.rangeOfString(lower) != nil})
             collectionView.reloadData()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let identifier = "detailVC"
+        if segue.identifier == identifier {
+            let detailVC  = segue.destinationViewController as! DetailViewController
+            detailVC.poke = sender as! Pokemon
         }
     }
 }
